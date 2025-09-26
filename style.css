@@ -1,80 +1,233 @@
-.header {
-  padding: 30px; /* some padding */
-  text-align: left; /* center the text */
-  background: #894c89; /* green background */
-  color: white; /* white text color */
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        text-decoration-color 0.2s ease,
+        opacity 0.2s ease;
 }
 
-/* Increase the font size of the <h1> element */
-.header h1 {
-  font-size: 40px;
-}
-.book:hover {
-        transform: scale(1.05); 
-    }
+/* ===== CSS VARIABLES ===== */
+:root {
+    /* Typography */
+    --h1: clamp(2.25rem, 4vw, 3rem);
+    --h2: clamp(0.9375rem, 1.75vw, 1rem);
+    --h3: clamp(1.1875rem, 2.5vw, 1.25rem);
+    --h4: clamp(0.9375rem, 2vw, 1rem);
+    --h5: calc(var(--body) * 1.1);
+    --body: clamp(0.9375rem, 2vw, 1rem);
 
-.me {
-    float: left;
-    margin: 0px 20px 0px 00px;
-}
-.w, .berkeley {
-    float: right;
-    padding: 10px 10px
-}
-.content {
-    margin: 0px 00px 0px 20px
+    /* Spacing */
+    --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+    --space-s: clamp(0.7rem, 1.67vw, 1rem);
+    --space: clamp(1rem, 4vw, 2rem);
+    --space-l: clamp(1.5rem, 6vw, 3rem);
+    --space-xl: clamp(3rem, 8vw, 6rem);
 }
 
-/* Style the top navigation bar */
-.navbar {
-  overflow: hidden; /* Hide overflow */
-  background-color: #733B73; /* Dark background color */
-  position: sticky;
-  top: 0;
-  padding: 10px 16px;
+
+/* ===== BASE STYLES ===== */
+::selection {
+    background-color: var(--text);
+    color: var(--bg);
 }
 
-/* Style the navigation bar links */
-.navbar a {
-  float: left; /* Make sure that the links stay side-by-side */
-  display: block; /* Change the display to block, for responsive reasons (see below) */
-  color: white; /* White text color */
-  text-align: center; /* Center the text */
-  padding: 14px 20px; /* Add some padding */
-  text-decoration: none; /* Remove underline */
+html {
+    scroll-behavior: smooth;
+    overscroll-behavior-y: none;
 }
 
-/* Right-aligned link */
-.navbar a.right {
-  float: right; /* Float a link to the right */
-  background-color: #733B73;
-}
-
-/* Change color on hover/mouse-over */
-.navbar a:hover {
-  background-color: #DAB1DA; /* Grey background color */
-  color: black; /* Black text color */
-}
-
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) {
-  .row {
+body {
+    background: var(--bg);
+    font-size: var(--body);
+    line-height: 1.6;
+    color: var(--text);
+    margin: var(--space-xl) auto;
+    display: flex;
     flex-direction: column;
-  }
+    gap: var(--space);
+    max-width: clamp(320px, 90vw, 1280px);
+    padding: 0 var(--space-l);
+    position: relative;
 }
 
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--header);
+    margin-bottom: var(--space-s);
+}
+
+h1 {
+    font-size: var(--h1);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: var(--h2);
+    font-weight: 400;
+}
+
+h3 {
+    font-size: var(--h3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    scroll-margin-top: var(--space);
+    position: sticky;
+    top: 0;
+    padding: var(--space-s) 0;
+    background-color: var(--bg);
+    z-index: 10;
+    margin-top: calc(var(--space-xl) * 1.5);
+    margin-bottom: var(--space-xs);
+}
+
+h4 {
+    font-size: var(--h4);
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+}
+
+h5 {
+    font-size: var(--h5);
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+}
+
+b {
+    color: var(--header);
+}
+
+p,
+ul,
+ol,
+li {
+    margin-bottom: 0;
+}
+
+ul,
+ol {
+    margin-left: 1em;
+}
+
+li > ul,
+li > ol {
+    margin-top: var(--space-s);
+}
+
+.book{
+    float: left;
+    text-align: left;
+    border: 2px solid black; /* Sets a 2px solid black border */
+    padding: 10px;           /* Adds space between content and border */
+    margin: 0px;            /* Adds space outside the border */
+    border-radius: 8px;      /* Rounds the corners of the box */
+}
+
+body {
+    background-color: rgb(203, 224, 245);
+}
+
+/* ===== LINKS ===== */
+a {
+    color: var(--header);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+}
+
+/* ===== LAYOUT ===== */
+aside {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space);
+}
+
+aside footer {
+    margin-top: var(--space-s);
+}
+
+main {
+    flex: 3;
+    min-width: 0;
+}
+
+/* ===== HEADER ===== */
+
+header p {
+    margin-bottom: var(--space-s);
+    height: 3.4em;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* ===== ICONS ===== */
+aside footer img,
+h3 img {
     width: 100%;
-  }
+    max-width: calc(var(--body) * 2);
+    height: auto;
 }
-.footer {
-  padding: 20px; /* Some padding */
-  text-align: center; /* Center text*/
-  background: #ddd; /* Grey background */
+
+aside footer a {
+    display: inline-block;
+    transition:
+        opacity 0.2s ease,
+        transform 0.1s ease;
+    position: relative;
 }
+
+aside footer a:not(:last-child) {
+    margin-right: var(--space-s);
+}
+
+/* ===== FOOTER ===== */
+main footer {
+    font-size: 0.8em;
+    margin-top: var(--space-xl);
+    opacity: 0.7;
+    text-align: center;
+}
+
+main footer p {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    flex-wrap: wrap;
+}
+
+main footer span {
+    display: block;
+    visibility: hidden;
+    margin-bottom: var(--space-xs);
+}
+
+body[data-js] main footer span {
+    visibility: visible;
+}
+
+main footer img {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    opacity: 1;
+}
+
 .progress {
   height: 3px;
   width: 0%;
@@ -135,24 +288,167 @@
   transform: translateZ(calc(var(--size) * -.5));
 }
 
-.section {
+
+
+/* ===== DESKTOP STYLES ===== */
+@media (min-width: 1024px) {
+    body {
+        flex-direction: row;
+    }
+
+    h3 {
+        margin-top: var(--space-xl);
+    }
+
+    /* Links */
+    a:hover {
+        text-decoration-color: var(--header);
+    }
+
+    /* Sidebar */
+    aside {
+        position: sticky;
+        top: var(--space-xl);
+        max-height: calc(100vh - 2 * var(--space-xl));
+        min-height: calc(100vh - 2 * var(--space-xl));
+        margin-bottom: 0;
+        overflow-y: auto;
+        justify-content: space-between;
+    }
+
+    aside footer {
+        margin-top: auto;
+    }
+
+    /* Navigation */
+    aside header nav {
+        position: static;
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: var(--space);
         display: flex;
-        /* Optional: Add a gap between boxes */
-        gap: 20px; 
+        flex-direction: column;
+        margin-top: var(--space-l);
+        width: fit-content;
+        opacity: 1;
+        transition: opacity 0.3s ease;
     }
 
-.section2 {
-        /*flex: 1; /* Makes both boxes take up equal width */
-        padding: 20px;
-        border: 1px solid #ccc;
-        top: 20px;
-        /* Add other styling as needed (background-color, etc.) */
-    }
-.section1 {
-        width: 80%;
+    aside header nav a {
+        color: black;
+        text-decoration: none;
+        font-size: calc(var(--body) * 0.8);
+        letter-spacing: 1.5px;
+        font-weight: 700;
+        padding: var(--space-xs) 0;
+        position: relative;
+        transition: all 0.2s ease;
+        padding-left: calc(2 * (var(--space-s) + var(--space-xs)));
+        opacity: 0.7;
     }
 
-.dark-mode {
-  background-color: #2c052c;
-  color: white;
+    aside header nav a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: calc(2 * var(--space-s));
+        height: 2px;
+        background-color: var(--text);
+        transition: all 0.2s ease;
+        border-radius: 1px;
+    }
+
+    aside header nav a:hover {
+        padding-left: calc(2 * var(--space));
+        color: var(--header);
+    }
+
+    aside header nav a:hover::before {
+        background-color: var(--header);
+        width: calc(2 * var(--space-s) * 1.5);
+    }
+
+    aside header nav a[data-active="true"] {
+        padding-left: calc(2 * (var(--space) + var(--space-xs)));
+        opacity: 1;
+    }
+
+    aside header nav a[data-active="true"]::before {
+        background-color: var(--header);
+        width: calc(2 * var(--space-s) * 2);
+    }
+
+    /* Footer interactions */
+    body:has(aside footer a:hover) aside footer a:not(:hover) {
+        opacity: 0.4;
+    }
+
+    aside footer a:hover {
+        transform: translateY(-8px);
+    }
+
+    aside footer a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: height 0.1s ease;
+    }
+
+    aside footer a:hover::before {
+        height: calc(100% + 8px);
+    }
+
+    aside footer a::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 5px);
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--text);
+        font-size: 0.8rem;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 20;
+    }
+
+    aside footer a:hover::after {
+        opacity: 1;
+    }
+
+    /* Main content */
+    main h3 {
+        margin-top: 2vw;
+    }
+
+    main h1 {
+        margin-top: 1vw;
+    }
+    main footer {
+        margin-top: 25vw;
+    }
+
+
+
+
+    /* Short screen optimization */
+    @media (max-height: 700px) {
+        aside header nav {
+            opacity: 0;
+            max-height: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+            transition:
+                opacity 0.3s ease,
+                max-height 0.3s ease,
+                margin 0.3s ease;
+        }
+    }
 }
