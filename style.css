@@ -1,0 +1,158 @@
+.header {
+  padding: 30px; /* some padding */
+  text-align: left; /* center the text */
+  background: #894c89; /* green background */
+  color: white; /* white text color */
+}
+
+/* Increase the font size of the <h1> element */
+.header h1 {
+  font-size: 40px;
+}
+.book:hover {
+        transform: scale(1.05); 
+    }
+
+.me {
+    float: left;
+    margin: 0px 20px 0px 00px;
+}
+.w, .berkeley {
+    float: right;
+    padding: 10px 10px
+}
+.content {
+    margin: 0px 00px 0px 20px
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden; /* Hide overflow */
+  background-color: #733B73; /* Dark background color */
+  position: sticky;
+  top: 0;
+  padding: 10px 16px;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left; /* Make sure that the links stay side-by-side */
+  display: block; /* Change the display to block, for responsive reasons (see below) */
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right; /* Float a link to the right */
+  background-color: #733B73;
+}
+
+/* Change color on hover/mouse-over */
+.navbar a:hover {
+  background-color: #DAB1DA; /* Grey background color */
+  color: black; /* Black text color */
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+.footer {
+  padding: 20px; /* Some padding */
+  text-align: center; /* Center text*/
+  background: #ddd; /* Grey background */
+}
+.progress {
+  height: 3px;
+  width: 0%;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: progress 1s linear;
+}
+@keyframes progress {
+  to {
+    background-color: rgb(20, 255, 226);
+    width: 100%;
+  }
+}
+
+:root * {
+  /* Pause the animation */
+  animation-play-state: paused;
+  /* Bind the animation to scroll */
+  animation-delay: calc(var(--scroll) * -1s);
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+.side {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background-color: #eee;
+  backface-visibility: visible;
+  top: calc(var(--size) * -.5);
+  left: calc(var(--size) * -.5);
+}
+.top {
+  background-color: #fff;
+  transform: rotateX(90deg) translateZ(calc(var(--size) * .5));
+}
+.bottom {
+  background-color: #999;
+  transform: rotateX(90deg) translateZ(calc(var(--size) * -.5));
+}
+.left {
+  background-color: #ccc;
+  transform: rotateY(90deg) translateZ(calc(var(--size) * .5));
+}
+.right {
+  background-color: #ddd;
+  transform: rotateY(90deg) translateZ(calc(var(--size) * -.5));
+}
+.front {
+  background-color: #aaa;
+  transform: translateZ(calc(var(--size) * .5));
+}
+.back {
+  background-color: #bbb;
+  transform: translateZ(calc(var(--size) * -.5));
+}
+
+.section {
+        display: flex;
+        /* Optional: Add a gap between boxes */
+        gap: 20px; 
+    }
+
+.section2 {
+        /*flex: 1; /* Makes both boxes take up equal width */
+        padding: 20px;
+        border: 1px solid #ccc;
+        top: 20px;
+        /* Add other styling as needed (background-color, etc.) */
+    }
+.section1 {
+        width: 80%;
+    }
+
+.dark-mode {
+  background-color: #2c052c;
+  color: white;
+}
